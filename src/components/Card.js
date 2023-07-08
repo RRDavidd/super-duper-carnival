@@ -84,10 +84,6 @@ let mainTemp = tempName.map((val, index) => {
   return `${val} : ${tempValue[index]}`;
 });
 
-useEffect(() => {
-  console.log(url);
-}, []);
-
   return(
     <SimpleGrid columns={2} minChildWidth="500px" placeItems="center" spacing={0}>
       <Box
@@ -129,7 +125,7 @@ useEffect(() => {
           mt="5px"
           fontSize="20px"
         >
-        {weatherForecast}
+        {Math.round((weatherForecast-32)*5/9)}
         {unicode}
         </Text>
         <Text color="white" display="flex" justifyContent="center" mt="200px">
