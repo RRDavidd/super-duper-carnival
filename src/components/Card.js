@@ -67,22 +67,8 @@ const unicode = "\u00b0";
 //actual data array
 let weatherArray = [fullDate, cityName, mainTime];
 //weather key names
-Object.keys(cityMain)
-  .filter((val, index) => index != 1)
-  .map((key) => {
-    tempName.push(key);
-  });
-//weather value numbers
-Object.values(cityMain)
-  .filter((val, index) => index != 1)
-  .map((val) => {
-    tempValue.push(val);
-  });
 
-//main weather key name and value to display
-let mainTemp = tempName.map((val, index) => {
-  return `${val} : ${tempValue[index]}`;
-});
+
 
   return(
     <SimpleGrid columns={2} minChildWidth="500px" placeItems="center" spacing={0}>
@@ -97,8 +83,8 @@ let mainTemp = tempName.map((val, index) => {
         shadow="dark-lg"
       >
 
-      {weatherArray.map((element, index) => (
-            <UnorderedList>
+        <UnorderedList>
+          {weatherArray.map((element, index) => (
               <ListItem
                 color="white"
                 display="flex"
@@ -108,32 +94,30 @@ let mainTemp = tempName.map((val, index) => {
               >
                 {element}
               </ListItem>
-            </UnorderedList>
           ))}
-          <Image
-            src={url}
-            alt="weather-icon"
-            width={100}
-            height={100}
-            ml="155"
-            p="0"
-          />
-         <Text
-          color="white"
-          display="flex"
-          justifyContent="center"
-          mt="5px"
-          fontSize="20px"
-        >
+        </UnorderedList>
+        <Image
+          src={url}
+          alt="weather-icon"
+          width={100}
+          height={100}
+          ml="155"
+        />
+        <Text
+        color="white"
+        display="flex"
+        justifyContent="center"
+        mt="5px"
+        fontSize="20px"
+      >
         {Math.round((weatherForecast-32)*5/9)}
-        {unicode}
-        </Text>
-        <Text color="white" display="flex" justifyContent="center" mt="200px">
-          {" "}
-          Current Weather{" "}
-        </Text>
-      </Box>
-      <Box
+        {unicode}C
+      </Text>
+      <Text color="white" display="flex" justifyContent="center" mt="200px">
+        Current Weather
+      </Text>
+    </Box>
+      {/* <Box
         m="10px"
         h="500px"
         w="400px"
@@ -159,7 +143,7 @@ let mainTemp = tempName.map((val, index) => {
           </Box>
         ))}
         </Flex>
-      </Box>
+      </Box> */}
     </SimpleGrid>
   )
 }
